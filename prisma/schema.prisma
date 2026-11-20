@@ -1,0 +1,74 @@
+// VICE.DEV database schema.
+// The database is OPTIONAL — without DATABASE_URL the site uses the static
+// content in src/content/. With it, you get the admin dashboard + contact inbox.
+//
+//   npm run db:push   -> create / update tables
+//   npm run db:seed   -> copy src/content/* into the database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  summary     String
+  description String   @db.Text // Markdown case study
+  tech        String[]
+  difficulty  String   @default("MEDIUM") // EASY | MEDIUM | HARD | LEGENDARY
+  status      String   @default("COMPLETED") // COMPLETED | IN_PROGRESS
+  reward      Int      @default(500)
+  year        Int      @default(2026)
+  repoUrl     String?
+  liveUrl     String?
+  image       String?
+  videoUrl    String?
+  color       String   @default("#FF4F91")
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id          String   @id @default(cuid())
+  name        String
+  branch      String // must match a branch id in src/config/site.ts
+  tier        Int      @default(1) // 1 (root) .. 4 (mastery)
+  level       Int      @default(80) // 0-100 proficiency
+  description String   @default("")
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String   @db.Text // Markdown
+  tag         String   @default("DEV LOG")
+  color       String   @default("#45C9FF")
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  missionType String
+  budget      String?
+  message     String   @db.Text
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
