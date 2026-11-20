@@ -57,7 +57,7 @@ export function Terminal({ projects }: { projects: PhoneProject[] }) {
     about: { desc: "Read the bio", run: () => print(...siteConfig.bio) },
     skills: {
       desc: "Show character stats",
-      run: () => print(...siteConfig.stats.map((s) => `  ${s.label.padEnd(24)} ${"█".repeat(Math.round(s.value / 10)).padEnd(10, "░")} ${s.value}`)),
+      run: () => print(...siteConfig.stats.map((s) => `  ${s.label.padEnd(24)} [${"=".repeat(Math.round(s.value / 10)).padEnd(10, "-")}] ${s.value}`)),
     },
     projects: {
       desc: "List missions",

@@ -209,3 +209,28 @@ Every feature is a self-contained component:
 | Phone / terminal | `<Phone />` / `<Terminal />` in the same file |
 | A homepage section | its line in `src/app/(site)/page.tsx` (also remove its `mapLocations` entry) |
 | Admin | the `src/app/admin` and `src/app/api/admin` folders |
+
+## 12. Updating the README screenshots
+
+The images and GIFs in the README live in `docs/media/` and were captured from the placeholder content. After customizing, regenerate them so your README shows *your* site.
+
+**Requirements:** Google Chrome installed, and [ffmpeg](https://ffmpeg.org/download.html) on your PATH (only for the GIF/MP4 step).
+
+```bash
+npm run build
+npm start                    # keep this running in one terminal
+```
+
+In a second terminal:
+
+```bash
+npm run media:screenshots    # → docs/media/screenshots/*.jpg (desktop 1440×900 + mobile)
+npm run media:video          # → docs/media/.raw/walkthrough.webm (scripted ~48 s tour)
+npm run media:encode         # → docs/media/walkthrough.mp4, tour-explore.gif, tour-interact.gif
+```
+
+- The first `media:video` run may ask you to run `npx playwright-core install ffmpeg`. That's a small recorder binary Playwright needs.
+- Point the scripts at another URL with `BASE_URL=https://your-site.dev npm run media:screenshots`.
+- The tour is a plain Playwright script in `scripts/media/video.mjs`. Edit its steps if you changed sections or district names.
+- If your tour timing changes, pass a new split point for the two GIFs: `npm run media:encode -- 25`.
+- Keep each GIF under about 10 MB so GitHub renders it quickly. The film-grain overlay is hidden during recording because its noise makes GIFs huge.

@@ -13,7 +13,10 @@
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
-    "db:setup": "prisma db push && tsx prisma/seed.ts"
+    "db:setup": "prisma db push && tsx prisma/seed.ts",
+    "media:screenshots": "node scripts/media/screenshots.mjs",
+    "media:video": "node scripts/media/video.mjs",
+    "media:encode": "node scripts/media/encode.mjs"
   },
   "dependencies": {
     "@prisma/client": "6.19.3",
@@ -31,6 +34,7 @@
     "@types/node": "^22.10.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
+    "playwright-core": "^1.65.1",
     "prisma": "6.19.3",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.19.0",

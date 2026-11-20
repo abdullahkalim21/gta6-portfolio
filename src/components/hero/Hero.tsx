@@ -32,9 +32,10 @@ export function Hero() {
         <Skyline className="h-full w-full" />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/30 to-transparent" />
+      <div className="absolute inset-0 bg-[var(--bg)]/45 md:hidden" />
       <div className="scanlines absolute inset-0 opacity-30" />
 
-      <div className="absolute right-4 top-20 z-10 hidden sm:right-6 md:block">
+      <div className="absolute right-4 top-20 z-20 hidden sm:right-6 md:block">
         <GameHud />
       </div>
 

@@ -184,23 +184,29 @@ export function CityMap() {
 
           <AnimatePresence>
             {current && (
-              <motion.div
+              // Outer div positions the tooltip; inner motion.div animates (Framer's `y` would replace a CSS transform).
+              <div
                 key={current.id}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                className="glass pointer-events-none absolute hidden rounded-lg px-3 py-2 sm:block"
+                className="pointer-events-none absolute hidden sm:block"
                 style={{
                   left: `${(current.x / W) * 100}%`,
                   top: `${(current.y / H) * 100}%`,
-                  transform: "translate(-50%, calc(-100% - 34px))",
+                  transform: "translate(-50%, calc(-100% - 30px))",
                 }}
               >
-                <p className="font-hud text-[0.6rem]" style={{ color: current.color }}>
-                  {current.name}
-                </p>
-                <p className="whitespace-nowrap text-sm font-semibold">{current.label}</p>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="glass rounded-lg px-3 py-2 shadow-xl"
+                  style={{ borderColor: `${current.color}66` }}
+                >
+                  <p className="font-hud text-[0.6rem]" style={{ color: current.color }}>
+                    {current.name}
+                  </p>
+                  <p className="whitespace-nowrap text-sm font-semibold">{current.label}</p>
+                </motion.div>
+              </div>
             )}
           </AnimatePresence>
         </div>

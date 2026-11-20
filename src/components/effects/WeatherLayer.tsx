@@ -70,7 +70,7 @@ function Rain() {
 
   return (
     <>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1b2a4a]/30 to-[#0d0a1c]/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1b2a4a]/15 to-transparent" />
       <canvas ref={canvas} className="absolute inset-0" />
     </>
   );

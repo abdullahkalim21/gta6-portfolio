@@ -6,6 +6,67 @@ An open-world, neon-soaked **developer portfolio template** built with Next.js. 
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8) ![License: MIT](https://img.shields.io/badge/License-MIT-pink)
 
+![VICE.DEV hero: a synthwave sunset skyline with the developer's name in huge type and a game-style HUD](docs/media/screenshots/02-hero.jpg)
+
+---
+
+## Demo
+
+**Explore:** loading screen → enter the city → wanted stars → map with GPS routes → skill tree → missions
+
+![Walkthrough: loading screen, hero, interactive map, skill tree and missions](docs/media/tour-explore.gif)
+
+**Interact:** terminal commands switch the city to night and rain → smartphone trophies and radio
+
+![Walkthrough: developer terminal, night mode with rain, and the in-game smartphone](docs/media/tour-interact.gif)
+
+🎬 Full 48-second walkthrough in higher quality: [docs/media/walkthrough.mp4](docs/media/walkthrough.mp4)
+
+---
+
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/media/screenshots/01-loading-screen.jpg" alt="Loading screen with a striped sunset and the city name"><br><sub><b>Loading screen</b>: once per session, always skippable</sub></td>
+    <td width="50%"><img src="docs/media/screenshots/03-hero-night-rain.jpg" alt="Hero at night with rain falling"><br><sub><b>Night + rain</b>: time of day and weather re-tint the city</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/screenshots/04-city-map.jpg" alt="Interactive city map with a GPS route to Business Bay"><br><sub><b>City map</b>: hover a district for a GPS route, click to fast-travel</sub></td>
+    <td><img src="docs/media/screenshots/05-character.jpg" alt="Character profile with avatar and bio"><br><sub><b>Character profile</b>: bio, stats, languages, achievements</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/screenshots/06-skill-tree.jpg" alt="RPG-style skill tree with unlocked nodes"><br><sub><b>Skill tree</b>: hover to unlock nodes</sub></td>
+    <td><img src="docs/media/screenshots/07-missions.jpg" alt="Project cards styled as missions"><br><sub><b>Mission log</b>: projects with difficulty, stack and XP</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/screenshots/14-mission-detail.jpg" alt="Project case study page"><br><sub><b>Mission briefing</b>: Markdown case study per project</sub></td>
+    <td><img src="docs/media/screenshots/08-story-mode.jpg" alt="Experience timeline"><br><sub><b>Story mode</b>: work and education timeline</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/screenshots/11-phone.jpg" alt="In-game smartphone home screen"><br><sub><b>Smartphone</b>: 10 working apps</sub></td>
+    <td><img src="docs/media/screenshots/12-phone-radio.jpg" alt="Phone music app playing a radio station"><br><sub><b>Radio</b>: music generated live in the browser</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/screenshots/13-terminal.jpg" alt="Developer terminal with command output"><br><sub><b>Terminal</b>: press <kbd>`</kbd> anywhere</sub></td>
+    <td><img src="docs/media/screenshots/09-trophies.jpg" alt="Achievement board"><br><sub><b>Trophies</b>: 13 achievements saved in the browser</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/screenshots/10-hire.jpg" alt="Hire section with contact form"><br><sub><b>Hire this developer</b>: contact form, resume, availability</sub></td>
+    <td><img src="docs/media/screenshots/15-city-news.jpg" alt="Blog post styled as breaking news"><br><sub><b>City news</b>: Markdown blog</sub></td>
+  </tr>
+</table>
+
+**Mobile**
+
+<p>
+  <img src="docs/media/screenshots/m1-mobile-hero.jpg" alt="Mobile hero" width="32%">
+  <img src="docs/media/screenshots/m2-mobile-map.jpg" alt="Mobile map" width="32%">
+  <img src="docs/media/screenshots/m3-mobile-phone.jpg" alt="Mobile smartphone" width="32%">
+</p>
+
+> To refresh these after customizing, see [Updating screenshots](docs/CUSTOMIZATION.md#12-updating-the-readme-screenshots).
+
 ---
 
 ## Features
@@ -36,8 +97,8 @@ An open-world, neon-soaked **developer portfolio template** built with Next.js. 
 **Prerequisites:** Node.js 18.18 or newer (20+ recommended) and npm.
 
 ```bash
-git clone https://github.com/<you>/<your-portfolio>.git
-cd <your-portfolio>
+git clone https://github.com/abdullahkalim21/gta6-portfolio.git
+cd gta6-portfolio
 npm install
 npm run dev
 ```
@@ -78,6 +139,8 @@ Copy `.env.example` to `.env` and fill in only what you need.
 | `npm run db:seed` | Copy `src/content/*` into the database |
 | `npm run db:setup` | `db:push` + `db:seed` |
 | `npm run db:studio` | Open Prisma Studio |
+| `npm run media:screenshots` | Re-capture the README screenshots (site must be running) |
+| `npm run media:video` / `media:encode` | Re-record the walkthrough and encode the MP4 + GIFs (needs ffmpeg) |
 
 ## Tech stack
 

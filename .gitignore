@@ -24,3 +24,6 @@ coverage/
 
 # local tooling
 .claude/
+
+# raw screen recordings
+docs/media/.raw/
