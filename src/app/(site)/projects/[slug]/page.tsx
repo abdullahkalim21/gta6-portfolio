@@ -5,6 +5,8 @@ import { getProject, getProjects } from "@/lib/data";
 import { renderMarkdown } from "@/lib/markdown";
 import { MissionArt } from "@/components/ui/MissionArt";
 import { UnlockOnMount } from "@/components/easter-eggs/UnlockOnMount";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, pageMetadata, projectJsonLd } from "@/lib/seo";
 
 export const revalidate = 60;
 
@@ -16,8 +18,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await getProject((await params).slug);
-  if (!project) return { title: "Mission not found" };
-  return { title: project.title, description: project.summary };
+  if (!project) return { title: "Mission not found", robots: { index: false } };
+  return pageMetadata({ title: project.title, description: project.summary, path: `/projects/${project.slug}`, type: "article", hasOwnImage: true });
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -32,6 +34,16 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <article className="pb-24 pt-24">
       <UnlockOnMount id="mission-briefing" />
+      <JsonLd
+        data={[
+          projectJsonLd(project),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+            { name: project.title, path: `/projects/${project.slug}` },
+          ]),
+        ]}
+      />
       <div className="relative h-[46vh] min-h-[320px] overflow-hidden">
         <MissionArt title={project.title} color={project.color} image={project.image} />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/75 to-[var(--bg)]/20" />

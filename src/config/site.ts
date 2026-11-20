@@ -160,10 +160,20 @@ export const siteConfig = {
   ] as RadioStation[],
 
   seo: {
+    /** Default <title>. Sub-pages use "Page · {brand}". */
     title: "Alex Rivera — Full Stack Developer",
+    /** ~150 characters. Shown in Google results and link previews. */
     description:
-      "An open-world developer portfolio. Explore the city, take on missions and meet the developer behind them.",
-    keywords: ["developer", "portfolio", "full stack", "next.js", "react", "typescript"],
+      "Alex Rivera is a full stack developer building fast, accessible web apps with Next.js and TypeScript. Explore the projects, skills and story.",
+    keywords: ["Alex Rivera", "full stack developer", "portfolio", "Next.js developer", "React", "TypeScript", "freelance web developer"],
+    /** Language/region of your content (Open Graph locale). */
+    locale: "en_US",
+    /** X/Twitter handle for "twitter:creator" (with @). Leave empty to omit. */
+    twitterHandle: "@alexrivera",
+    /** Your job title for structured data (Google rich results). */
+    jobTitle: "Full Stack Developer",
+    /** Skills listed as "knowsAbout" in structured data. */
+    knowsAbout: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "UI/UX design"],
   },
 };
 

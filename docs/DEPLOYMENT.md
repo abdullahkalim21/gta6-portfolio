@@ -9,6 +9,8 @@
    | Variable | Example |
    |---|---|
    | `NEXT_PUBLIC_SITE_URL` | `https://alexrivera.dev` |
+   | `GOOGLE_SITE_VERIFICATION` | Search Console HTML-tag value (see [SEO.md](SEO.md)) |
+   | `BING_SITE_VERIFICATION` | Bing Webmaster meta-tag value |
    | `DATABASE_URL` | `postgresql://…` (see [DATABASE.md](DATABASE.md)) |
    | `ADMIN_PASSWORD` | a long password |
    | `AUTH_SECRET` | 64 random hex characters |

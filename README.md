@@ -90,7 +90,8 @@ An open-world, neon-soaked **developer portfolio template** built with Next.js. 
 | 🤝 | **Hire system** | Mission-type picker, validated contact form, email delivery, resume download, booking link and availability indicator. Honeypot, timing check and rate limiting stop spam. |
 | 🛠️ | **Admin dashboard** | Password-protected `/admin` to manage missions, skills, posts and your contact inbox (requires a database). |
 | ♿ | **Accessible by default** | Skip link, keyboard-operable map and phone, `prefers-reduced-motion` support, no-JS fallback, semantic HTML. |
-| 🔎 | **SEO** | Metadata, generated Open Graph image, sitemap and robots. |
+| 🔎 | **SEO** | Per-page titles, descriptions and canonical URLs, JSON-LD structured data (Person, WebSite, projects, posts, breadcrumbs), sitemap, robots, RSS feed and web manifest. Preview deployments are never indexed. |
+| 🖼️ | **Social previews** | Generated 1200×630 link-preview cards for the site, every mission and every blog post: X, LinkedIn, Slack, Discord, WhatsApp. |
 
 ## Quick start
 
@@ -123,7 +124,8 @@ The full guide is in **[docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md)**.
 | Admin dashboard + contact inbox | `DATABASE_URL`, `ADMIN_PASSWORD`, `AUTH_SECRET` | [docs/DATABASE.md](docs/DATABASE.md) |
 | Contact form emails | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md#email-resend) |
 | "Book a call" button | `NEXT_PUBLIC_CALENDLY_URL` | — |
-| Correct links in SEO / OG tags | `NEXT_PUBLIC_SITE_URL` | — |
+| Correct canonical URLs, social previews and sitemap | `NEXT_PUBLIC_SITE_URL` | [docs/SEO.md](docs/SEO.md) |
+| Google / Bing Search Console verification | `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` | [docs/SEO.md](docs/SEO.md) |
 
 Copy `.env.example` to `.env` and fill in only what you need.
 
@@ -190,6 +192,7 @@ One-click on Vercel. See **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** for Vercel
 ## Docs
 
 - [Customization](docs/CUSTOMIZATION.md): content, colors, map, radio, achievements
+- [SEO & social previews](docs/SEO.md): metadata, link-preview images, structured data, Search Console
 - [Database & admin](docs/DATABASE.md): Supabase, Neon, local Docker, seeding
 - [Deployment](docs/DEPLOYMENT.md): Vercel, env vars, email
 - [Features & easter eggs](docs/FEATURES.md): how everything works (spoilers!)

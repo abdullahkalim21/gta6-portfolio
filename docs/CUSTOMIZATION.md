@@ -78,7 +78,7 @@ List newest first. `kind: "education"` entries are tinted violet.
 
 ### SEO
 
-`seo.title`, `seo.description` and `seo.keywords` feed the page metadata and the generated Open Graph image. Also set `NEXT_PUBLIC_SITE_URL` in production.
+The `seo` block feeds page titles, descriptions, social preview cards and structured data. See **[SEO.md](SEO.md)** for every field and the setup checklist. Also set `NEXT_PUBLIC_SITE_URL` in production.
 
 ---
 

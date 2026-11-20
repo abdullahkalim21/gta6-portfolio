@@ -6,6 +6,8 @@ import { renderMarkdown } from "@/lib/markdown";
 import { formatDate } from "@/lib/format";
 import { fullName, siteConfig } from "@/config/site";
 import { UnlockOnMount } from "@/components/easter-eggs/UnlockOnMount";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, pageMetadata, postJsonLd } from "@/lib/seo";
 
 export const revalidate = 60;
 
@@ -17,8 +19,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPost((await params).slug);
-  if (!post) return { title: "Story not found" };
-  return { title: post.title, description: post.excerpt, openGraph: { type: "article", publishedTime: post.publishedAt } };
+  if (!post) return { title: "Story not found", robots: { index: false } };
+  return pageMetadata({ title: post.title, description: post.excerpt, path: `/blog/${post.slug}`, type: "article", publishedTime: post.publishedAt, hasOwnImage: true });
 }
 
 export default async function PostPage({ params }: Props) {
@@ -28,6 +30,16 @@ export default async function PostPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-3xl px-4 pb-24 pt-32 sm:px-6">
       <UnlockOnMount id="reader" />
+      <JsonLd
+        data={[
+          postJsonLd(post),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <Link href="/blog" className="font-hud text-xs text-[var(--muted)] hover:text-white">
         ‹ {siteConfig.cityName} Daily
       </Link>

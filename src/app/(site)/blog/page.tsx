@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { getPosts } from "@/lib/data";
-import { siteConfig } from "@/config/site";
+import { fullName, siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { NewsCard } from "@/components/sections/NewsSection";
 
 export const revalidate = 60;
-export const metadata: Metadata = { title: "City news", description: "Dev logs, deep-dives and dispatches." };
+export const metadata: Metadata = pageMetadata({
+  title: "Blog",
+  description: `Dev logs, technical deep-dives and lessons learned by ${fullName}.`,
+  path: "/blog",
+});
 
 export default async function BlogPage() {
   const posts = await getPosts();

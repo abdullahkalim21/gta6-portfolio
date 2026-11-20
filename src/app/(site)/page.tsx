@@ -10,14 +10,24 @@ import { NewsSection } from "@/components/sections/NewsSection";
 import { HireSection } from "@/components/contact/HireSection";
 import { getPosts, getProjects, getSkills } from "@/lib/data";
 import { env } from "@/lib/env";
+import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
+import { pageMetadata, personJsonLd, websiteJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  ...pageMetadata({ description: siteConfig.seo.description, path: "/", type: "profile" }),
+  title: { absolute: siteConfig.seo.title },
+};
 
 export default async function HomePage() {
   const [projects, skills, posts] = await Promise.all([getProjects(), getSkills(), getPosts()]);
 
   return (
     <>
+      <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
       <LoadingScreen />
       <Hero />
       <CityMap />

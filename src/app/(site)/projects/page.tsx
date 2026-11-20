@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { getProjects } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
+import { fullName, siteConfig } from "@/config/site";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MissionBrowser } from "@/components/missions/MissionBrowser";
 
 export const revalidate = 60;
-export const metadata: Metadata = { title: "Missions", description: "Every project, presented as a mission." };
+export const metadata: Metadata = pageMetadata({
+  title: "Projects",
+  description: `Projects and case studies by ${fullName}: ${siteConfig.seo.knowsAbout.slice(0, 4).join(", ")} and more, each presented as a mission.`,
+  path: "/projects",
+});
 
 export default async function ProjectsPage() {
   const projects = await getProjects();
