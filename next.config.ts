@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  images: {
+    unoptimized: true
+  }
 };
 
 export default nextConfig;
